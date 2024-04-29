@@ -1,0 +1,222 @@
+/* ======== VARIABLES ======== */
+:root{
+    --color-600: #FFD046;
+    --color-400: #FF4E00;
+    --color-300: #BF3100;
+    --color-100: #2E282A;
+
+    --white: #e7e7e7;
+    --black: #000;
+    --black-2: #2c2c2c;
+
+    --font-family: "Segoe UI", system-ui, sans-serif;
+
+    --font-size-body: 22px;
+}
+
+
+/*======== RESET ======== */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.5;
+    font-size: var(--font-size-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    height: calc(100dvh + fit-content);
+    background: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+p {
+    max-width: 75ch;
+    text-wrap: pretty;
+}
+
+
+
+/* ======== CSS ======== */
+
+
+
+main{
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    border: none;
+    font-family: var(--font-family);
+    cursor: pointer;
+}
+
+
+
+
+/* ======== FORM ======== */
+form{
+    --_form-font-size: var(--font-size-body);
+
+    width: 80%;
+    margin: 4.5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4%;
+}
+form .user-box{
+    position: relative;
+    flex: 1 1 48%;
+}
+form .user-box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: var(--_form-font-size);
+    color: var(--white);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    outline: none;
+    background: transparent;
+    font-family: var(--font-family);
+    transition: border-color .3s ease;
+}
+form .user-box label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: var(--_form-font-size);
+    color: var(--white);
+    pointer-events: none;
+    transition: .3s ease;
+}
+form .user-box input:is(:focus, :valid, [type="date"], [type="time"], .not-empty) ~ label{
+    top: -20px;
+    color: var(--color-400);
+    font-size: 12px;
+}
+form .user-box input:focus{
+    border-color: var(--color-400);
+}
+form .user-box input:required ~ label::after{
+    content: "*";
+    color: var(--color-400);
+    padding-left: 5px;
+}
+form textarea{
+    width: 100%;
+    padding: 10px 15px;
+    background: transparent;
+    color: var(--white);
+    border: 0;
+    border-bottom: 1px solid var(--white);
+    border-left: 1px solid var(--white);
+    font-size: var(--_form-font-size);
+    resize: none;
+    outline: none;
+    border-radius: 0 0 0 5px;
+    font-family: var(--font-family);
+    transition: border-color .3s ease;
+}
+form textarea:focus{
+    border-color: var(--color-400);
+}
+form button[type="submit"]{
+    margin-top: 2rem;
+}
+form .user-box:has(#email){
+    flex: 1 1 100%;
+}
+
+/* ======== BUTTON TO SEND DATA ======== */
+#sendBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: var(--font-size-body);
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--color-300);
+    transform: translateY(15px);
+}
+#sendBtn:is(:hover){
+    background: var(--color-400);
+}
+
+/* ======== RESULT ======== */
+#result{
+    color: var(--white);
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* ======== VALIDATION MESSAGE ======== */
+:has(> #formValid){
+    position: relative;
+}
+#formValid{
+    position: absolute;
+    inset: 0;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: #aaa7;
+    color: #000;
+    backdrop-filter: blur(2px);
+    transition: opacity 1s ease;
+}
+#formValid.active{
+    visibility: visible;
+    opacity: 1;
+}
+#formValid > *{
+    margin: 0 auto;
+}
+
+/* ======== CLOSING THE VALIDATION MESSAGE ======== */
+#closeFormValid{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #790000;
+    background: transparent;
+}
+#closeFormValid svg{
+    width: 25px;
+}
+#closeFormValid:hover{
+    color: red;
+}
+
+
+
+/* ======== MEDIA QUERIES ======== */
+
+@media (width < 601px) {
+    form .user-box{
+        position: relative;
+        flex: 1 1 100%;
+    }
+}

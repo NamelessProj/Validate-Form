@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Validate a form">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validate Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section>
+
+            <!-- ======== FORM ======== -->
+            <form>
+                <div class="user-box">
+                    <input type="text" name="name" id="name" pattern="[a-zA-Z]{2,}" required>
+                    <label>Name</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="lastname" id="lastname" pattern="[a-zA-Z]{2,}" required>
+                    <label>Lastname</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="email" name="email" id="email" inputmode="email" pattern="[a-z\-0-9]{3,}@[a-z]{2,}.[a-z]{2,}" required>
+                    <label>Email</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="address" id="address" inputmode="text" pattern="[a-zA-Z]{2,}" required>
+                    <label>Address</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="postalCode" id="postalCode" inputmode="numeric" pattern="[0-9]{4}" required>
+                    <label>Postal code</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="city" id="city" inputmode="text" pattern="[a-zA-Z]{2,}" required>
+                    <label>City</label>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="tel" id="tel" inputmode="numeric" pattern="[0-9]{10}" required>
+                    <label>Tel</label>
+                </div>
+
+                <textarea name="msg" id="msg" placeholder="Your message..." rows="4" required></textarea>
+
+                <!-- ======== SEND BTN ======== -->
+                <button type="button" id="sendBtn">
+                    <span>Send</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor">
+                        <path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/>
+                    </svg>
+                </button>
+            </form>
+
+            <!-- ======== RESULT ======== -->
+            <p id="result">&emsp;</p>
+        </section>
+
+        <!-- ======== VALIDATION MESSAGE ======== -->
+        <div id="formValid">
+
+            <!-- ======== CLOSING THE VALIDATION MESSAGE ======== -->
+            <button type="button" id="closeFormValid">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512">
+                    <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/>
+                </svg>
+            </button>
+
+            <h2>Thank you!</h2>
+            <p>Now that we know everything from you, let conquer the world together!</p>
+        </div>
+    </main>
+</body>
+</html>
