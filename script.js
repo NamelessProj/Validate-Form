@@ -98,12 +98,7 @@ allInput.forEach(input => {
 
 // CHECKING EVERY INPUT WHEN SUMMITING THE FORM
 sendBtn.addEventListener('click', () => {
-    if(validate(regexLastName, lastName) && validate(regexName, name) && validate(regexEmail, email) && validate(regexAddress, address) && validate(regexPostalCode, postalCode) && validate(regexName, city) && validate(regexTel, tel) && validateTextArea(msg)){
-        console.log('MISSION PASS');
-        formValid.classList.add('active');
-    }else{
-        console.log('MISSION FAIL');
-    }
+    if(validate(regexLastName, lastName) && validate(regexName, name) && validate(regexEmail, email) && validate(regexAddress, address) && validate(regexPostalCode, postalCode) && validate(regexName, city) && validate(regexTel, tel) && validateTextArea(msg)) formValid.classList.add('active');
 });
 
 // CLOSING THE VALIDATION MESSAGE
